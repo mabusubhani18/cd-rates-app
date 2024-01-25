@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cdrates.entity.CDRatesEntity;
+import com.cdrates.entity.CDRates;
 import com.cdrates.models.CdRateChart;
 import com.cdrates.models.Term;
 import com.cdrates.repo.CDRatesRepository;
@@ -38,7 +38,7 @@ public class CdRatesServiceImpl implements CdRatesService{
 		//System.out.println("CDRates Data  ========>  "+optionalCDRates.get());
 
 	      //Retrive record by Id using findById() method
-	      Optional<CDRatesEntity> opt= cDRatesRepository.findById(111);
+	      Optional<CDRates> opt= cDRatesRepository.findById(111);
 	      if(opt.isPresent()) {
 	           System.out.println(opt.get());;
 	      }

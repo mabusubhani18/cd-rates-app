@@ -1,6 +1,6 @@
 package com.cdrates.models;
 
-import com.cdrates.entity.CDRatesEntity;
+import com.cdrates.entity.CDRates;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
