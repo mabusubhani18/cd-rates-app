@@ -22,5 +22,5 @@ public class CDRates {
 	private Double cdMinAmount;
 	private Double cdMaxAmount;
 	private Double managerApy;
-
+    private Integer zipCode;
 }
