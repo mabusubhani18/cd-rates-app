@@ -13,7 +13,14 @@ public class CdRateChart {
     private Double cdMaxAmount;
     private Double apy;
     private Double managerApy;
+    private Double intrestRate;
+    public Double getIntrestRate() {
+        return intrestRate;
+    }
 
+    public void setIntrestRate(Double intrestRate) {
+        this.intrestRate = intrestRate;
+    }
     public CdRateChart() {
     }
 

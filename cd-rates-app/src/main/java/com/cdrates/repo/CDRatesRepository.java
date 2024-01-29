@@ -9,9 +9,9 @@ import com.cdrates.entity.CDRates;
 import java.util.List;
 
 @Repository
-public interface CDRatesRepository extends CassandraRepository<CDRates, Integer> {
+public interface CDRatesRepository extends CassandraRepository<CDRates, String> {
 	
 	@AllowFiltering
-     List<CDRates> findByZipCode(Integer zipcode);
+     List<CDRates> findByState(String state);
 
 }
