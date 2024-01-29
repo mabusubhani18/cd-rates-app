@@ -33,7 +33,7 @@ public class CdRatesController {
 	public List<CdRateChart> getActiveCdRates(@PathVariable String zipCode) {
 
 		if (zipCode.length() == 5) {
-			return cdRatesService.getActiveCdRates(zipCode);
+			return cdRatesService.getActiveCdRates(zipCode, false);
 		} else {
 			throw new InvalidZipCodeException("Invalid Zipcode");
 		}
@@ -48,7 +48,7 @@ public class CdRatesController {
 	public List<CdRateChart> getCdHistoryRateChart(@PathVariable String zipCode) {
 
 		if (zipCode.length() == 5) {
-			return cdRatesService.getActiveCdRates(zipCode);
+			return cdRatesService.getActiveCdRates(zipCode, false);
 		} else {
 			throw new InvalidZipCodeException("Invalid Zipcode");
 		}
@@ -60,8 +60,9 @@ public class CdRatesController {
     )
 	@GetMapping(value = "/manager/cdRateChart/{zipCode}")
 	public List<CdRateChart> getActiveManagerCDRates(@PathVariable("zipCode") String zipCode) {
+
 		if (zipCode.length() == 5) {
-			return cdRatesService.getActiveManagerCDRates(zipCode);
+			return cdRatesService.getActiveCdRates(zipCode,true);
 		} else {
 			throw new InvalidZipCodeException("Invalid Zipcode");
 		}
@@ -74,7 +75,7 @@ public class CdRatesController {
 	@GetMapping(value = "/manager/cdHistoryRateChart/{zipCode}")
 	public List<CdRateChart> getActiveManagerHistoryCDRates(@PathVariable("zipCode") String zipCode) {
 		if (zipCode.length() == 5) {
-			return cdRatesService.getActiveManagerCDRates(zipCode);
+			return cdRatesService.getActiveCdRates(zipCode,true);
 		} else {
 			throw new InvalidZipCodeException("Invalid Zipcode");
 		}

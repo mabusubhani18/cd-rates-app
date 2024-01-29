@@ -8,10 +8,10 @@ public interface CdRatesService {
 	
 	
 	
-	public abstract List<CdRateChart> getActiveCdRates(String zipCode);
-	public abstract List<CdRateChart> getCdHistoryRateChart(String zipCode);
-	public abstract List<CdRateChart> getActiveManagerCDRates(String zipCode);
-	public abstract List<CdRateChart> getActiveManagerHistoryCDRates(String zipCode);
+	public abstract List<CdRateChart> getActiveCdRates(String zipCode, boolean isManager);
+//	public abstract List<CdRateChart> getCdHistoryRateChart(String zipCode);
+//	public abstract List<CdRateChart> getActiveManagerCDRates(String zipCode);
+//	public abstract List<CdRateChart> getActiveManagerHistoryCDRates(String zipCode);
 
 
 }

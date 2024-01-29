@@ -20,7 +20,7 @@ public class CdRatesServiceImpl implements CdRatesService {
     CDRatesRepository cDRatesRepository;
 
     @Override
-    public List<CdRateChart> getActiveCdRates(String zipCode) {
+    public List<CdRateChart> getActiveCdRates(String zipCode, boolean isManager) {
         //Retrive record by Id using findByZipCode() method
         List<CDRates> cdRatesResult = cDRatesRepository.findByZipCode(Integer.valueOf(zipCode));
 
@@ -28,43 +28,18 @@ public class CdRatesServiceImpl implements CdRatesService {
         for (CDRates cdRates : cdRatesResult) {
             CdRateChart cdRateChart = new CdRateChart();
             cdRateChart.setCdType(cdRates.getCdType());
-            cdRateChart.setApy(cdRates.getApy());
+            //cdRateChart.setApy(cdRates.getApy());
             cdRateChart.setTermType(cdRates.getTermType());
             cdRateChart.setCdMaxAmount(cdRates.getCdMaxAmount());
-            cdRateChart.setManagerApy(cdRates.getManagerApy());
+            if(isManager) {
+                cdRateChart.setManagerApy(cdRates.getManagerApy());
+            }else{
+                cdRateChart.setApy(cdRates.getApy());
+            }
             cdRateChart.setCdMinAmount(cdRates.getCdMinAmount());
             cdRateCharts.add(cdRateChart);
         }
         System.out.println("cdRateCharts" + cdRateCharts);
         return cdRateCharts;
-    }
-
-    @Override
-    public List<CdRateChart> getCdHistoryRateChart(String zipCode) {
-        return getActiveCdRates(zipCode);
-    }
-
-    @Override
-    public List<CdRateChart> getActiveManagerCDRates(String zipCode) {
-        List<CDRates> cdRatesResult = cDRatesRepository.findByZipCode(Integer.valueOf(zipCode));
-
-        List<CdRateChart> cdRateCharts = new ArrayList<>();
-        for (CDRates cdRates : cdRatesResult) {
-            CdRateChart cdRateChart = new CdRateChart();
-            cdRateChart.setCdType(cdRates.getCdType());
-            cdRateChart.setApy(cdRates.getApy());
-            cdRateChart.setTermType(cdRates.getTermType());
-            cdRateChart.setCdMaxAmount(cdRates.getCdMaxAmount());
-            cdRateChart.setManagerApy(cdRates.getManagerApy());
-            cdRateChart.setCdMinAmount(cdRates.getCdMinAmount());
-            cdRateCharts.add(cdRateChart);
-        }
-        System.out.println("cdRateCharts" + cdRateCharts);
-        return cdRateCharts;
-    }
-
-    @Override
-    public List<CdRateChart> getActiveManagerHistoryCDRates(String zipCode) {
-        return getActiveManagerCDRates(zipCode);
     }
 }

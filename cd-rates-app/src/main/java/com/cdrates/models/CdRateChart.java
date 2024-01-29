@@ -1,5 +1,11 @@
 package com.cdrates.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class CdRateChart {
     private String cdType;
     private String termType;
