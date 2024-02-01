@@ -1,6 +1,5 @@
 package com.cdrates;
 
-import java.io.File;
 import java.nio.file.Path;
 
 import org.springframework.boot.SpringApplication;
@@ -10,9 +9,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 
 import com.cdrates.config.CassandraConfiguration;
-import com.datastax.oss.driver.api.core.CqlSession;
-import com.datastax.oss.driver.api.core.CqlSessionBuilder;
-import com.datastax.oss.driver.api.core.session.SessionBuilder;
 
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;

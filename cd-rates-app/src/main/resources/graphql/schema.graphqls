@@ -1,0 +1,16 @@
+type CdRateChart {
+  cdType: String
+  termType: String
+  cdMinAmount: Float
+  cdMaxAmount: Float
+  apy : Float
+  managerApy: Float
+  intrestRate: Float
+}
+
+type Query {
+  getActiveCdRates(zipCode: String!): [CdRateChart]
+  getCdHistoryRateChart(zipCode: String!): [CdRateChart]
+  getActiveManagerCDRates(zipCode: String!): [CdRateChart]
+  getActiveManagerHistoryCDRates(zipCode: String!): [CdRateChart]
+}
